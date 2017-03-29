@@ -21,11 +21,19 @@ def min(nums)
   end
 end
 
-def sort_asc(nums)
+def bubble_sort_asc(nums)
 
 end
 
-def sort_desc(nums)
+def bubble_sort_desc(nums)
+
+end
+
+def quick_sort_asc(nums)
+
+end
+
+def quick_sort_desc(nums)
 
 end
 
