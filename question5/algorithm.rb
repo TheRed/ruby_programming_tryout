@@ -21,14 +21,14 @@ def min(nums)
   end
 end
 
-def swap(nums, i, j)
-  nums[i], nums[j] = nums[j], nums[i]
+def swap_with_next(nums, index)
+  nums[index], nums[index + 1] = nums[index + 1], nums[index]
 end
 
 def bubble_sort_asc(nums)
   (1..nums.length - 1).reverse_each do |i|
     (0...i).each do |j|
-      swap(nums, j, j + 1) if nums[j] > nums[j + 1]
+      swap_with_next(nums, j) if nums[j] > nums[j + 1]
     end
   end
   nums
@@ -37,7 +37,7 @@ end
 def bubble_sort_desc(nums)
   (1..nums.length - 1).reverse_each do |i|
     (0...i).each do |j|
-      swap(nums, j, j + 1) if nums[j] < nums[j + 1]
+      swap_with_next(nums, j) if nums[j] < nums[j + 1]
     end
   end
   nums
