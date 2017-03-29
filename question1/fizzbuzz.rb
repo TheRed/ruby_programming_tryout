@@ -3,7 +3,7 @@ count = gets.to_i
 
 output = (1...count).each_with_object([]) do |num, arr|
   if (num % 3).zero? && (num % 5).zero?
-    arr << 'FizzBuzz'
+    arr << 'Fizz Buzz'
   elsif (num % 3).zero?
     arr << 'Fizz'
   elsif (num % 5).zero?
