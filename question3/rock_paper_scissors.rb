@@ -48,7 +48,7 @@ class RockPaperScissors
   end
 
   def run
-    while draw?
+    until winner
       puts '「アイコでしょ！」' unless @user_hand.nil? || @comp_hand.nil?
       set_user_hand || next
       set_comp_hand
