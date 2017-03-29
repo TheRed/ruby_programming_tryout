@@ -1,6 +1,5 @@
 # frozen_string_literal: true
 class RockPaperScissors
-  attr_reader :user_hand, :comp_hand
   HANDS_RANGE = (0..2)
 
   def name_of(hand)
