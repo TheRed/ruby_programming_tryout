@@ -11,12 +11,6 @@ class RockPaperScissors
     @comp_hand = rand(0..HANDS.length)
   end
 
-  def draw?
-    @user_hand == @comp_hand &&
-    !@user_hand.nil? &&
-    !@comp_hand.nil?
-  end
-
   def winner
     case [@user_hand, @comp_hand]
     when [0, 1], [1, 2], [2, 0] then
@@ -27,12 +21,13 @@ class RockPaperScissors
   end
 
   def run
-    until winner
-      puts '「アイコでしょ！」' if draw?
-      puts <<~EOF
-          「じゃんけん・・・」
-          > 0.グー 1.チョキ 2.パー
-          EOF
+    loop do
+      puts '「じゃんけん・・・」'
+      print '> '
+      HANDS.each_with_index do |hand, i|
+        print "#{i}.#{hand} "
+      end
+      puts
       set_user_hand || (puts '0, 1, 2 のいずれかを入力してください。'; next)
       set_comp_hand
       puts <<~EOF
@@ -40,6 +35,8 @@ class RockPaperScissors
           ＊コンピュータ：#{HANDS[@comp_hand]}
           ＊あなた：#{HANDS[@user_hand]}
           EOF
+      break if winner
+      puts '「アイコでしょ！」'
     end
     puts "「#{winner}の勝ち！」"
   end
