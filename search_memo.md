@@ -8,3 +8,5 @@
 7. q3 定数の使い方
 8. q4 等差数列の和を計算できるWebシステム(答え合わせ用)
   <http://keisan.casio.jp/exec/system/1166593007>
+9. q5 for文の使い方(調べたけど使用せず)
+10. q5 reverse_eachの使い方
