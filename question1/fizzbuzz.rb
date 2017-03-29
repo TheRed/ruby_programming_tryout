@@ -1,15 +1,15 @@
 puts '数字を入力してください'
 count = gets.to_i
 
-(1...count).each_with_object do |num|
+output = (1...count).each_with_object([]) do |num, arr|
   if (num % 3).zero? && (num % 5).zero?
-    print 'FizzBuzz'
+    arr << 'FizzBuzz'
   elsif (num % 3).zero?
-    print 'Fizz'
+    arr << 'Fizz'
   elsif (num % 5).zero?
-    print 'Buzz'
+    arr << 'Buzz'
   else
-    print num
+    arr << num
   end
-  print ', ' unless num == count - 1
 end
+puts output.join(', ')
