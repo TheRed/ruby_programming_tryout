@@ -58,7 +58,17 @@ def quick_sort_asc(nums)
 end
 
 def quick_sort_desc(nums)
-
+  return nums[0] if nums.length == 1
+  pivot = nums[0]
+  left, right = [], []
+  (0...nums.length).each do |i|
+    if nums[i] < pivot
+      right << nums[i]
+    else
+      left << nums[i]
+    end
+  end
+  [quick_sort_desc(left), quick_sort_desc(right)].flatten
 end
 
 p nums = [20, 31, 42, 13, 5, 38]
@@ -69,3 +79,4 @@ puts "最小値: #{min(nums)}"
 puts "小さい順(バブルソート): #{bubble_sort_asc(nums)}"
 puts "大きい順(バブルソート): #{bubble_sort_desc(nums)}"
 puts "小さい順(クイックソート): #{quick_sort_asc(nums)}"
+puts "小さい順(クイックソート): #{quick_sort_desc(nums)}"
