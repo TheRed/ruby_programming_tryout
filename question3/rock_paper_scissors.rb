@@ -11,10 +11,6 @@ class RockPaperScissors
   end
 
   def set_user_hand
-    puts <<~EOF
-        「じゃんけん・・・」
-        > 0.グー 1.チョキ 2.パー
-        EOF
     input_num = gets.to_i
     if HANDS_RANGE.include?(input_num)
       @user_hand = input_num
@@ -33,12 +29,6 @@ class RockPaperScissors
     !@comp_hand.nil?
   end
 
-  def show_hands
-    puts '「ぽい！」'
-    puts "＊コンピュータ：#{name_of(@comp_hand)}"
-    puts "＊あなた：#{name_of(@user_hand)}"
-  end
-
   def winner
     case [@user_hand, @comp_hand]
     when [0, 1], [1, 2], [2, 0] then
@@ -51,9 +41,17 @@ class RockPaperScissors
   def run
     until winner
       puts '「アイコでしょ！」' if draw?
+      puts <<~EOF
+          「じゃんけん・・・」
+          > 0.グー 1.チョキ 2.パー
+          EOF
       set_user_hand || (puts '0, 1, 2 のいずれかを入力してください。'; next)
       set_comp_hand
-      show_hands
+      puts <<~EOF
+          「ぽい！」
+          ＊コンピュータ：#{name_of(@comp_hand)}
+          ＊あなた：#{name_of(@user_hand)}
+          EOF
     end
     puts "「#{winner}の勝ち！」"
   end
