@@ -39,14 +39,12 @@ class RockPaperScissors
     puts "＊あなた：#{name_of(@user_hand)}"
   end
 
-  def show_winner
+  def winner
     case [@user_hand, @comp_hand]
     when [0, 1], [1, 2], [2, 0] then
-      puts '「あなたの勝ち！」'
+      'あなた'
     when [1, 0], [2, 1], [0, 2] then
-      puts '「コンピュータの勝ち！」'
-    # else
-    #   puts '「アイコでしょ！」'
+      'コンピュータ'
     end
   end
 
@@ -57,7 +55,7 @@ class RockPaperScissors
       set_comp_hand
       show_hands
     end
-    show_winner
+    puts "「#{winner}の勝ち！」"
   end
 end
 
