@@ -30,15 +30,11 @@ class RockPaperScissors
   end
 
   def draw?
-    if @user_hand == @comp_hand
-      puts '「アイコでしょ！」' unless @user_hand.nil? || @comp_hand.nil?
-      true
-    else
-      false
-    end
+    @user_hand == @comp_hand
   end
 
   def show_hands
+    puts '「ぽい！」'
     puts "＊コンピュータ：#{name_of(@comp_hand)}"
     puts "＊あなた：#{name_of(@user_hand)}"
   end
@@ -56,9 +52,9 @@ class RockPaperScissors
 
   def run
     while draw?
+      puts '「アイコでしょ！」' unless @user_hand.nil? || @comp_hand.nil?
       set_user_hand || next
       set_comp_hand
-      puts '「ぽい！」'
       show_hands
     end
     show_winner
