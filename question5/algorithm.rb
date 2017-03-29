@@ -25,5 +25,5 @@ def sort_desc(nums)
 
 end
 
-nums = [20, 31, 42, 13, 5, 38]
-puts sum(nums)
+p nums = [20, 31, 42, 13, 5, 38]
+puts "合計: #{sum(nums)}"
