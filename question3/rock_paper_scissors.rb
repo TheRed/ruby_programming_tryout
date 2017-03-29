@@ -1,26 +1,14 @@
 # frozen_string_literal: true
 class RockPaperScissors
-  HANDS_RANGE = (0..2)
-
-  def name_of(hand)
-    case hand
-    when 0 then 'グー'
-    when 1 then 'チョキ'
-    when 2 then 'パー'
-    end
-  end
+  HANDS = ['グー', 'チョキ', 'パー']
 
   def set_user_hand
     input_num = gets.to_i
-    if HANDS_RANGE.include?(input_num)
-      @user_hand = input_num
-    else
-      false
-    end
+    @user_hand = input_num
   end
 
   def set_comp_hand
-    @comp_hand = rand(HANDS_RANGE)
+    @comp_hand = rand(0..HANDS.length)
   end
 
   def draw?
@@ -49,8 +37,8 @@ class RockPaperScissors
       set_comp_hand
       puts <<~EOF
           「ぽい！」
-          ＊コンピュータ：#{name_of(@comp_hand)}
-          ＊あなた：#{name_of(@user_hand)}
+          ＊コンピュータ：#{HANDS[@comp_hand]}
+          ＊あなた：#{HANDS[@user_hand]}
           EOF
     end
     puts "「#{winner}の勝ち！」"
