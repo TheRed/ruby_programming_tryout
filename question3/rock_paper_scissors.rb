@@ -19,7 +19,6 @@ class RockPaperScissors
     if HANDS_RANGE.include?(input_num)
       @user_hand = input_num
     else
-      puts '0, 1, 2 のいずれかを入力してください。'
       false
     end
   end
@@ -52,7 +51,7 @@ class RockPaperScissors
   def run
     until winner
       puts '「アイコでしょ！」' if draw?
-      set_user_hand || next
+      set_user_hand || (puts '0, 1, 2 のいずれかを入力してください。'; next)
       set_comp_hand
       show_hands
     end
