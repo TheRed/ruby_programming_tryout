@@ -21,8 +21,17 @@ def min(nums)
   end
 end
 
-def bubble_sort_asc(nums)
+def swap(nums, i, j)
+  nums[i], nums[j] = nums[j], nums[i]
+end
 
+def bubble_sort_asc(nums)
+  (1..nums.length - 1).reverse_each do |i|
+    (0...i).each do |j|
+      swap(nums, j, j + 1) if nums[j] > nums[j + 1]
+    end
+  end
+  nums
 end
 
 def bubble_sort_desc(nums)
@@ -42,3 +51,4 @@ puts "合計: #{sum(nums)}"
 puts "平均: #{avg(nums)}"
 puts "最大値: #{max(nums)}"
 puts "最小値: #{min(nums)}"
+puts "小さい順(バブルソート): #{bubble_sort_asc(nums)}"
