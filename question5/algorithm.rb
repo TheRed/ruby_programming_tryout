@@ -44,8 +44,8 @@ def bubble_sort_desc(nums)
 end
 
 def quick_sort_asc(nums)
-  return nums[0] if nums.length == 1
-  pivot = nums[0]
+  return nums.first if nums.length == 1
+  pivot = nums.first
   left, right = [], []
   (0...nums.length).each do |i|
     if nums[i] < pivot
@@ -58,8 +58,8 @@ def quick_sort_asc(nums)
 end
 
 def quick_sort_desc(nums)
-  return nums[0] if nums.length == 1
-  pivot = nums[0]
+  return nums.first if nums.length == 1
+  pivot = nums.first
   left, right = [], []
   (0...nums.length).each do |i|
     if nums[i] < pivot
