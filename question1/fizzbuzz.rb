@@ -1,7 +1,7 @@
 puts '数字を入力してください'
 count = gets.to_i
 
-(1...count).each do |num|
+(1...count).each_with_object do |num|
   if (num % 3).zero? && (num % 5).zero?
     print 'FizzBuzz'
   elsif (num % 3).zero?
@@ -11,5 +11,5 @@ count = gets.to_i
   else
     print num
   end
-  print ', '
+  print ', ' unless num == count - 1
 end
